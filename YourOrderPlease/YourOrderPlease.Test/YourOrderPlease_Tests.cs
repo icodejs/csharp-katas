@@ -1,3 +1,6 @@
+// https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-nunit
+
+// https://github.com/nunit/docs/wiki/CollectionOrderedConstraint
 using Kata.YourOrderPlease;
 using NUnit.Framework;
 
@@ -11,9 +14,10 @@ namespace Kata.YourOrderPlease.UnitTests {
         }
 
         [Test]
-        public void RetrunSomeValue () {
-            var result = _yourOrderPlease.IsPrime (1);
-            Assert.IsFalse (result, "1 should not be prime");
+        public void ReturnOrderedWords () {
+            var result = _yourOrderPlease.Order ("is2 Thi1s T4est 3a");
+
+            Assert.That (result, Is.EqualTo ("Thi1s is2 3a T4est"));
         }
     }
 }
